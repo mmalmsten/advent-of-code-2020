@@ -18,4 +18,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run tests
-      run: rebar3 do eunit
+      run: rebar3 eunit
