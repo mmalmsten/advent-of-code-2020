@@ -1,9 +1,12 @@
 -module(helpers).
 
--export([read_at_pos/2,
+-export([is_at_pos/3,
+         read_at_pos/2,
          read_file/1,
          read_file/3,
-         replace_at_pos/3]).
+         replace_at_pos/3,
+         replace_list_at_pos/3,
+         times_in_binary/3]).
 
 binary_to_number(N) ->
     case binary:match(N, <<".">>, []) of
@@ -26,13 +29,36 @@ read_file(File, Delimiter, Types) ->
         _ -> List
     end.
 
-% Read at pos starting to count from 0
-read_at_pos(List, Pos) -> lists:nth(Pos + 1, List).
+% Check if a character exists at pos
+is_at_pos(Binary, Pos, Character) ->
+    Character == binary:part(Binary, {Pos, 1}).
 
-% Replace at pos starting to count from 0
-replace_at_pos(List, Pos, New_value) ->
+% Read at pos
+read_at_pos(Binary, Pos) ->
+    binary:part(Binary, {Pos, 1}).
+
+% Replace at pos in binary
+replace_at_pos(<<_:1/binary, Rest/binary>>, 0,
+               New_value) ->
+    <<New_value, Rest>>;
+replace_at_pos(Binary, Pos, New_value) ->
+    <<Head:(Pos - 1)/binary, _:1/binary, Rest/binary>> =
+        Binary,
+    <<Head:(Pos - 1)/binary, New_value, Rest/binary>>.
+
+% Replace at pos in list
+replace_list_at_pos(List, Pos, New_value) ->
     {Before, [_ | After]} = lists:split(Pos, List),
     lists:flatten([Before, [New_value], After]).
+
+% Amount of times a Character occurs in a binary
+times_in_binary(_, <<>>, N) -> N;
+times_in_binary(Character,
+                <<Character:1/binary, Tail/binary>>, N) ->
+    times_in_binary(Character, Tail, N + 1);
+times_in_binary(Character, <<_:1/binary, Tail/binary>>,
+                N) ->
+    times_in_binary(Character, Tail, N).
 
 %%----------------------------------------------------------------------
 %% Unit tests

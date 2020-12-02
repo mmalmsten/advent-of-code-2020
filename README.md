@@ -4,6 +4,8 @@
 
 [Day 1: Report Repair](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle01.erl)
 
+[Day 2: Password Philosophy](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle02.erl)
+
 ## Getting started
 
 1. Install Erlang
