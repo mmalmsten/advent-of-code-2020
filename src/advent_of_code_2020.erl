@@ -4,7 +4,8 @@
 
 start() ->
     % puzzle01:start(),
-    puzzle02:start(),
+    % puzzle02:start(),
+    puzzle03:start(),
     loop().
 
 loop() ->

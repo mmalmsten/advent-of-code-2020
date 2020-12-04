@@ -6,6 +6,8 @@
 
 [Day 2: Password Philosophy](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle02.erl)
 
+[Day 3: Toboggan Trajectory](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle03.erl)
+
 ## Getting started
 
 1. Install Erlang
