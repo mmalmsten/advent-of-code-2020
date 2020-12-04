@@ -3,9 +3,10 @@
 -export([start/0]).
 
 start() ->
-    % puzzle01:start(),
-    % puzzle02:start(),
+    puzzle01:start(),
+    puzzle02:start(),
     puzzle03:start(),
+    puzzle04:start(),
     loop().
 
 loop() ->

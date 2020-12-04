@@ -1,12 +1,46 @@
--module(helpers).
+-module(aoc).
 
--export([is_at_pos/3,
+-export([all_keys_in_binary/2,
+         binary_match_nth/3,
+         binary_to_number/1,
+         is_at_pos/3,
+         is_numeric/1,
          read_at_pos/2,
          read_file/1,
          read_file/3,
          replace_at_pos/3,
          replace_list_at_pos/3,
-         times_in_binary/3]).
+         times_in_binary/3,
+         value_between/3]).
+
+value_between(Binary, Min, Max) ->
+    case aoc:is_numeric(Binary) of
+        true ->
+            Binary1 = aoc:binary_to_number(Binary),
+            Binary1 >= Min andalso Binary1 =< Max;
+        _ -> false
+    end.
+
+binary_match_nth(Binary, Row_steps, Row_steps) ->
+    Binary;
+binary_match_nth(Binary, Row_steps, N) ->
+    case binary:split(Binary, [<<"\n">>]) of
+        [_, Binary1] ->
+            binary_match_nth(Binary1, Row_steps, N + 1);
+        _ -> false
+    end.
+
+all_keys_in_binary([], _) -> true;
+all_keys_in_binary([Key | Keys], Passport) ->
+    case binary:match(Passport, Key) of
+        nomatch -> false;
+        _ -> all_keys_in_binary(Keys, Passport)
+    end.
+
+is_numeric(N) ->
+    Float = (catch binary_to_float(N)),
+    Int = (catch binary_to_integer(N)),
+    is_number(Float) orelse is_number(Int).
 
 binary_to_number(N) ->
     case binary:match(N, <<".">>, []) of

@@ -7,7 +7,7 @@
 -export([start/0]).
 
 start() ->
-    Input = helpers:read_file("3.txt"),
+    Input = aoc:read_file("3.txt"),
     io:format("Puzzle 3, part 1: ~p~n", [part1(Input)]),
     io:format("Puzzle 3, part 2: ~p~n", [part2(Input)]).
 
@@ -54,20 +54,13 @@ walk(Input, Step_row, {Column, Step_column}, Trees) ->
                <<"#">> -> 1;
                _ -> 0
            end,
-    case nth_match(Input, Step_row, 0) of
+    case aoc:binary_match_nth(Input, Step_row, 0) of
         false -> Trees + Tree;
         Input1 ->
             walk(Input1,
                  Step_row,
                  {Column + Step_column, Step_column},
                  Trees + Tree)
-    end.
-
-nth_match(Binary, Row_steps, Row_steps) -> Binary;
-nth_match(Binary, Row_steps, N) ->
-    case binary:split(Binary, [<<"\n">>]) of
-        [_, Binary1] -> nth_match(Binary1, Row_steps, N + 1);
-        _ -> false
     end.
 
 %%----------------------------------------------------------------------
@@ -78,11 +71,11 @@ nth_match(Binary, Row_steps, N) ->
 -include_lib("eunit/include/eunit.hrl").
 
 part1_test() ->
-    Input = helpers:read_file("3_mock.txt"),
+    Input = aoc:read_file("3_mock.txt"),
     7 = part1(Input).
 
 part2_test() ->
-    Input = helpers:read_file("3_mock.txt"),
+    Input = aoc:read_file("3_mock.txt"),
     336 = part2(Input).
 
 -endif.

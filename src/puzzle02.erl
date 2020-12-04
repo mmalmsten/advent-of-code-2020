@@ -7,7 +7,7 @@
 -export([start/0]).
 
 start() ->
-    Input = helpers:read_file("2.txt", <<"\n">>, binary),
+    Input = aoc:read_file("2.txt", <<"\n">>, binary),
     io:format("Puzzle 2, part 1: ~p~n", [part1(Input)]),
     io:format("Puzzle 2, part 2: ~p~n", [part2(Input)]).
 
@@ -22,9 +22,9 @@ part1(Input) ->
                                                  [global]),
                                 Min1 = binary_to_integer(Min),
                                 Max1 = binary_to_integer(Max),
-                                Times = helpers:times_in_binary(Letter,
-                                                                Password,
-                                                                0),
+                                Times = aoc:times_in_binary(Letter,
+                                                            Password,
+                                                            0),
                                 Times >= Min1 andalso Times =< Max1
                         end,
                         Input)).
@@ -38,14 +38,13 @@ part2(Input) ->
                                     binary:split(I,
                                                  [<<"-">>, <<" ">>, <<":">>],
                                                  [global]),
-                                helpers:is_at_pos(Password,
-                                                  binary_to_integer(Pos1) - 1,
-                                                  Letter)
+                                aoc:is_at_pos(Password,
+                                              binary_to_integer(Pos1) - 1,
+                                              Letter)
                                     /=
-                                    helpers:is_at_pos(Password,
-                                                      binary_to_integer(Pos2) -
-                                                          1,
-                                                      Letter)
+                                    aoc:is_at_pos(Password,
+                                                  binary_to_integer(Pos2) - 1,
+                                                  Letter)
                         end,
                         Input)).
 

@@ -10,7 +10,7 @@
 -export([start/0]).
 
 start() ->
-    Input = helpers:read_file("1.txt", <<"\n">>, numbers),
+    Input = aoc:read_file("1.txt", <<"\n">>, numbers),
     io:format("Puzzle 1, part 1: ~p~n", [part1(Input)]),
     io:format("Puzzle 1, part 2: ~p~n", [part2(Input)]).
 
