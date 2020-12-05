@@ -10,6 +10,7 @@
 
 [Day 4: Passport Processing](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle04.erl)
 
+[Day 5: Binary Boarding](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle05.erl)
 
 ## Getting started
 

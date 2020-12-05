@@ -7,6 +7,7 @@ start() ->
     puzzle02:start(),
     puzzle03:start(),
     puzzle04:start(),
+    puzzle05:start(),
     loop().
 
 loop() ->
