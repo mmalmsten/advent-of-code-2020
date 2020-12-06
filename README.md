@@ -12,6 +12,8 @@
 
 [Day 5: Binary Boarding](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle05.erl)
 
+[Day 6: Custom Customs](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle06.erl)
+
 ## Getting started
 
 1. Install Erlang
