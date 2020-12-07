@@ -17,5 +17,8 @@ _build
 *.iml
 rebar3.crashdump
 *~
-priv
 *.py
+*.txt
+*.pl
+!*_mock*
+.DS_Store

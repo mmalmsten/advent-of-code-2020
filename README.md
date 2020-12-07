@@ -14,6 +14,8 @@
 
 [Day 6: Custom Customs](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle06.erl)
 
+[Day 7: Handy Haversacks](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle07.erl)
+
 ## Getting started
 
 1. Install Erlang
