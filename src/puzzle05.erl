@@ -45,17 +45,13 @@ seat_id(<<>>, _, Column) -> Column;
 %% Only 3 characters left in binary, use those for getting the column
 seat_id(<<C:3/binary>>, Row, _) when Row > 0 ->
     Row * (?ID_PARAM) + seat_id(C, 0, ?COLUMNS);
-%% R == B
-seat_id(<<"R", Rest/binary>>, Min, Max) ->
-    seat_id(<<"B", Rest/binary>>, Min, Max);
-%% L == F
-seat_id(<<"L", Rest/binary>>, Min, Max) ->
-    seat_id(<<"F", Rest/binary>>, Min, Max);
-%% F means to take the lower half
-seat_id(<<"F", Rest/binary>>, Min, Max) ->
+%% L or F means to take the lower half
+seat_id(<<Char:1/binary, Rest/binary>>, Min, Max)
+    when Char == <<"L">> orelse Char == <<"F">> ->
     seat_id(Rest, Min, math:floor((Max - Min) / 2 + Min));
-%% B means to take the upper half
-seat_id(<<"B", Rest/binary>>, Min, Max) ->
+%% R or B means to take the upper half
+seat_id(<<Char:1/binary, Rest/binary>>, Min, Max)
+    when Char == <<"R">> orelse Char == <<"B">> ->
     seat_id(Rest, math:ceil((Max - Min) / 2 + Min), Max).
 
 %%----------------------------------------------------------------------

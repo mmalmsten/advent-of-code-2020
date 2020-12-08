@@ -16,13 +16,15 @@
 
 [Day 7: Handy Haversacks](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle07.erl)
 
+[Day 8: Handheld Halting](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle08.erl)
+
 ## Getting started
 
 1. Install Erlang
 
 2. Install Rebar3
 
-3. Create a directory called `./priv` and add files provided for the puzzles
+3. Add files provided for the puzzles in the `./priv` directory
 
 ### Run
 

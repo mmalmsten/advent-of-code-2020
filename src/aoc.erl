@@ -2,6 +2,7 @@
 
 -export([all_keys_in_binary/2,
          binary_match_nth/3,
+         binary_split_nth/2,
          binary_to_number/1,
          is_at_pos/3,
          is_numeric/1,
@@ -24,9 +25,25 @@ value_between(Binary, Min, Max) ->
 binary_match_nth(Binary, Row_steps, Row_steps) ->
     Binary;
 binary_match_nth(Binary, Row_steps, N) ->
-    case binary:split(Binary, [<<"\n">>]) of
+    case binary:split(Binary, <<"\n">>) of
         [_, Binary1] ->
             binary_match_nth(Binary1, Row_steps, N + 1);
+        _ -> false
+    end.
+
+binary_split_nth(Binary, Row_steps) ->
+    binary_split_nth(Binary, Row_steps, 0, <<>>).
+
+binary_split_nth(Binary, Row_steps, Row_steps,
+                 Before) ->
+    {Before, Binary};
+binary_split_nth(Binary, Row_steps, N, Before) ->
+    case binary:split(Binary, <<"\n">>) of
+        [H, Binary1] ->
+            binary_split_nth(Binary1,
+                             Row_steps,
+                             N + 1,
+                             <<Before/binary, H/binary, "\n">>);
         _ -> false
     end.
 
