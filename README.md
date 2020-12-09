@@ -18,6 +18,9 @@
 
 [Day 8: Handheld Halting](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle08.erl)
 
+[Day 9: Encoding Error](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle09.erl)
+
+
 ## Getting started
 
 1. Install Erlang

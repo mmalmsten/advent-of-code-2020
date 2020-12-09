@@ -6,11 +6,6 @@
 
 -export([start/0]).
 
-start() ->
-    Input = aoc:read_file("3.txt"),
-    io:format("Puzzle 3, part 1: ~p~n", [part1(Input)]),
-    io:format("Puzzle 3, part 2: ~p~n", [part2(Input)]).
-
 -ifdef(TEST).
 
 -define(COLUMNS, 10).
@@ -23,6 +18,11 @@ start() ->
 
 -define(SLOPES,
         [{1, 1}, {1, 3}, {1, 5}, {1, 7}, {2, 1}]).
+
+start() ->
+    Input = aoc:read_file("3.txt"),
+    io:format("Puzzle 3, part 1: ~p~n", [part1(Input)]),
+    io:format("Puzzle 3, part 2: ~p~n", [part2(Input)]).
 
 %%----------------------------------------------------------------------
 %% Part 1
