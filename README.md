@@ -20,6 +20,13 @@
 
 [Day 9: Encoding Error](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle09.erl)
 
+[Day 10: Adapter Array](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle10.erl)
+
+[Day 11: Seating System](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle11.erl)
+
+[Day 12: Rain Risk](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle12.erl)
+
+[Day 13: Shuttle Search](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle13.erl)
 
 ## Getting started
 

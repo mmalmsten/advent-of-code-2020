@@ -6,8 +6,10 @@
          binary_to_number/1,
          is_at_pos/3,
          is_numeric/1,
+         lcm/2,
          read_at_pos/2,
          read_file/1,
+         read_file/2,
          read_file/3,
          replace_at_pos/3,
          replace_list_at_pos/3,
@@ -70,11 +72,16 @@ read_file(File) ->
     {ok, Binary} = file:read_file([Priv_dir, "/", File]),
     Binary.
 
+read_file(File, Delimiter) ->
+    read_file(File, Delimiter, binary).
+
 read_file(File, Delimiter, Types) ->
     Priv_dir = code:priv_dir(advent_of_code_2020),
     {ok, Binary} = file:read_file([Priv_dir, "/", File]),
     List = binary:split(Binary, Delimiter, [global]),
     case Types of
+        lists ->
+            lists:map(fun (L) -> binary:bin_to_list(L) end, List);
         numbers ->
             lists:map(fun (L) -> binary_to_number(L) end, List);
         _ -> List
@@ -111,6 +118,11 @@ times_in_binary(Character,
 times_in_binary(Character, <<_:1/binary, Tail/binary>>,
                 N) ->
     times_in_binary(Character, Tail, N).
+
+lcm(A, B) -> abs(A * B div gcd(A, B)).
+
+gcd(A, 0) -> A;
+gcd(A, B) -> gcd(B, A rem B).
 
 %%----------------------------------------------------------------------
 %% Unit tests
