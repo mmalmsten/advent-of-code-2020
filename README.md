@@ -28,6 +28,18 @@
 
 [Day 13: Shuttle Search](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle13.erl)
 
+[Day 14: Docking Data](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle14.erl)
+
+[Day 15: Rambunctious Recitation](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle15.erl)
+
+[Day 16: Ticket Translation](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle16.erl)
+
+[Day 17: Conway Cubes](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle17.erl)
+
+[Day 18: Operation Order](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle18.erl)
+
+[Day 19: Monster Messages](https://github.com/mmalmsten/advent-of-code-2020/blob/master/src/puzzle19.erl)
+
 ## Getting started
 
 1. Install Erlang
